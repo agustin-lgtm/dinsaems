@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DINSA EMS · Simulación clínica y entrenamiento en emergencias · 24 años formando a quien salva vidas</title>
+<meta name="description" content="Distribuidora Intersistemas. 24 años equipando hospitales, escuelas de medicina y servicios prehospitalarios en México con simuladores Prestan, Nasco, Simulaids, programas AHA, NAEMT y ECSI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --violet:#3a1e6d;
+  --violet-deep:#241246;
+  --violet-soft:#5a37a8;
+  --lilac:#b9a4e6;
+  --cream:#f6f1e8;
+  --paper:#fbf8f2;
+  --ink:#161028;
+  --ink-soft:#3d3257;
+  --emerald:#0e7a5b;
+  --emerald-soft:#d6ebe2;
+  --line:rgba(22,16,40,.12);
+  --line-strong:rgba(22,16,40,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{max-width:1240px;margin:0 auto;padding:0 28px}
+.serif{font-family:'Fraunces',Georgia,serif;font-weight:500;letter-spacing:-.01em}
+.eyebrow{
+  font-family:'Inter';font-size:11px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--violet-soft);
+}
+
+/* Topbar */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(251,248,242,.82);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;max-width:1240px;margin:0 auto;
+}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--violet) 0%,var(--violet-soft) 100%);
+  display:grid;place-items:center;color:#fff;font-family:'Fraunces';font-weight:600;font-size:18px;
+  box-shadow:0 6px 18px rgba(58,30,109,.28);
+}
+.logo-text{font-family:'Fraunces';font-weight:600;font-size:20px;letter-spacing:-.01em;color:var(--ink)}
+.logo-text small{display:block;font-family:'Inter';font-size:10px;letter-spacing:.18em;color:var(--ink-soft);font-weight:500;margin-top:-2px}
+nav.main{display:flex;gap:30px;align-items:center}
+nav.main a{font-size:14px;font-weight:500;color:var(--ink-soft);transition:color .2s}
+nav.main a:hover{color:var(--violet)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;border-radius:999px;font-weight:600;font-size:14px;
+  transition:transform .15s, box-shadow .2s, background .2s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--violet);color:#fff;box-shadow:0 8px 22px rgba(58,30,109,.32)}
+.btn-primary:hover{background:var(--violet-deep);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.btn-emerald{background:var(--emerald);color:#fff}
+.btn-emerald:hover{background:#0b6149;transform:translateY(-1px)}
+
+/* Hero */
+.hero{padding:140px 0 80px;position:relative;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;top:-200px;right:-200px;width:560px;height:560px;
+  background:radial-gradient(circle,rgba(90,55,168,.18) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero h1{
+  font-family:'Fraunces';font-weight:500;font-size:clamp(40px,5.6vw,72px);
+  line-height:1.02;letter-spacing:-.025em;color:var(--ink);margin:18px 0 22px;
+}
+.hero h1 em{font-style:italic;color:var(--violet);font-weight:500}
+.hero .sub{
+  font-size:18px;color:var(--ink-soft);max-width:540px;line-height:1.6;margin-bottom:32px;
+}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:38px}
+.hero-meta{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  padding-top:30px;border-top:1px solid var(--line);
+}
+.meta-num{font-family:'Fraunces';font-size:34px;font-weight:600;color:var(--violet);letter-spacing:-.02em;line-height:1}
+.meta-lbl{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;font-weight:500}
+
+.hero-visual{
+  position:relative;aspect-ratio:4/5;border-radius:24px;overflow:hidden;
+  background:linear-gradient(155deg,var(--violet-deep) 0%,var(--violet) 55%,var(--violet-soft) 100%);
+  box-shadow:0 30px 80px -20px rgba(36,18,70,.55),0 12px 30px rgba(36,18,70,.25);
+}
+.hero-visual::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 75% 20%,rgba(255,255,255,.18) 0%,transparent 45%),
+    radial-gradient(circle at 25% 85%,rgba(14,122,91,.35) 0%,transparent 50%);
+}
+.hero-visual-content{
+  position:absolute;inset:0;padding:38px;display:flex;flex-direction:column;justify-content:space-between;color:#fff;
+}
+.hv-top{display:flex;justify-content:space-between;align-items:flex-start}
+.hv-badge{
+  background:rgba(255,255,255,.15);backdrop-filter:blur(6px);
+  padding:8px 14px;border-radius:999px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  border:1px solid rgba(255,255,255,.25);
+}
+.hv-pulse{
+  width:14px;height:14px;border-radius:50%;background:#37e0a3;
+  box-shadow:0 0 0 0 rgba(55,224,163,.6);animation:pulse 2s infinite;
+}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(55,224,163,.7)}70%{box-shadow:0 0 0 14px rgba(55,224,163,0)}100%{box-shadow:0 0 0 0 rgba(55,224,163,0)}}
+.hv-bottom h3{font-family:'Fraunces';font-size:34px;font-weight:500;line-height:1.05;margin-bottom:14px;letter-spacing:-.01em}
+.hv-bottom p{font-size:14px;opacity:.85;line-height:1.55;max-width:340px}
+.hv-stats{display:flex;gap:22px;margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)}
+.hv-stat strong{display:block;font-family:'Fraunces';font-size:22px;font-weight:600}
+.hv-stat span{font-size:11px;opacity:.75;letter-spacing:.1em;text-transform:uppercase}
+
+/* Trust band */
+.trust{padding:50px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--cream)}
+.trust-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:30px}
+.trust-label{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);font-weight:600}
+.trust-brands{display:flex;gap:36px;flex-wrap:wrap;align-items:center}
+.trust-brand{font-family:'Fraunces';font-weight:600;font-size:22px;color:var(--ink);opacity:.65;letter-spacing:-.01em}
+.trust-brand:hover{opacity:1;color:var(--violet)}
+
+/* Manifesto */
+.manifesto{padding:110px 0;background:var(--ink);color:var(--paper);position:relative}
+.manifesto-inner{max-width:920px;margin:0 auto;text-align:center}
+.manifesto .eyebrow{color:var(--lilac)}
+.manifesto h2{
+  font-family:'Fraunces';font-weight:400;font-style:italic;
+  font-size:clamp(32px,4.2vw,52px);line-height:1.18;letter-spacing:-.015em;margin:22px 0 28px;
+}
+.manifesto h2 em{font-style:normal;color:#37e0a3;font-weight:500}
+.manifesto p{font-size:17px;line-height:1.65;color:rgba(246,241,232,.78);max-width:680px;margin:0 auto}
+
+/* Sections */
+.section{padding:110px 0}
+.section-head{max-width:780px;margin-bottom:60px}
+.section-head h2{
+  font-family:'Fraunces';font-weight:500;font-size:clamp(32px,4vw,52px);
+  line-height:1.08;letter-spacing:-.02em;margin:14px 0 18px;
+}
+.section-head h2 em{font-style:italic;color:var(--violet)}
+.section-head p{font-size:17px;color:var(--ink-soft);max-width:620px}
+
+/* Catálogo cards */
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.cat-card{
+  background:var(--cream);border-radius:20px;padding:38px 34px;border:1px solid var(--line);
+  transition:transform .25s, box-shadow .25s, border-color .25s;position:relative;overflow:hidden;
+}
+.cat-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px -20px rgba(36,18,70,.25);border-color:var(--violet-soft)}
+.cat-card .num{
+  font-family:'Fraunces';font-size:13px;color:var(--violet-soft);font-weight:600;letter-spacing:.1em;
+  display:block;margin-bottom:18px;
+}
+.cat-card h3{font-family:'Fraunces';font-weight:600;font-size:28px;letter-spacing:-.015em;margin-bottom:14px;color:var(--ink)}
+.cat-card p{color:var(--ink-soft);font-size:15.5px;line-height:1.6;margin-bottom:22px}
+.cat-card ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.cat-card li{
+  font-size:12px;padding:5px 11px;background:#fff;border:1px solid var(--line);border-radius:999px;
+  color:var(--ink-soft);font-weight:500;
+}
+.cat-card .arrow{
+  display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--violet);
+}
+
+/* Proceso */
+.proceso{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:50px}
+.step{position:relative;padding:30px 24px;background:var(--paper);border-radius:18px;border:1px solid var(--line)}
+.step .step-num{
+  position:absolute;top:-18px;left:24px;
+  background:var(--violet);color:#fff;width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;font-family:'Fraunces';font-weight:600;font-size:16px;
+  box-shadow:0 6px 16px rgba(58,30,109,.3);
+}
+.step h4{font-family:'Fraunces';font-weight:600;font-size:20px;margin:22px 0 10px;letter-spacing:-.01em}
+.step p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* Programas grid */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.prog{
+  border:1px solid var(--line);border-radius:16px;padding:28px;background:var(--paper);
+  transition:border-color .2s, transform .2s;
+}
+.prog:hover{border-color:var(--violet);transform:translateY(-3px)}
+.prog .tag{
+  display:inline-block;font-size:11px;padding:4px 10px;border-radius:999px;
+  background:var(--emerald-soft);color:var(--emerald);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;
+}
+.prog .tag.aha{background:#fce4e8;color:#a8123a}
+.prog .tag.nac{background:#e8e2f7;color:var(--violet)}
+.prog h4{font-family:'Fraunces';font-size:22px;font-weight:600;margin-bottom:8px;letter-spacing:-.01em}
+.prog p{font-size:14px;color:var(--ink-soft);line-height:1.55}
+
+/* Sucursal / contacto */
+.contacto{background:var(--violet-deep);color:var(--paper);padding:110px 0}
+.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contacto h2{font-family:'Fraunces';font-size:clamp(34px,4.2vw,52px);font-weight:500;line-height:1.05;letter-spacing:-.02em;margin:14px 0 24px}
+.contacto h2 em{font-style:italic;color:#37e0a3}
+.contacto p.lead{font-size:18px;color:rgba(246,241,232,.78);margin-bottom:36px;max-width:480px;line-height:1.6}
+.contact-block{margin-bottom:24px}
+.contact-block .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--lilac);font-weight:600;margin-bottom:6px}
+.contact-block .val{font-family:'Fraunces';font-size:22px;font-weight:500;letter-spacing:-.005em}
+.contacto .eyebrow{color:var(--lilac)}
+.contact-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;padding:38px;backdrop-filter:blur(8px);
+}
+.contact-card h3{font-family:'Fraunces';font-size:24px;font-weight:600;margin-bottom:8px}
+.contact-card p{color:rgba(246,241,232,.78);font-size:15px;line-height:1.6;margin-bottom:26px}
+.contact-card .btn-emerald{width:100%;justify-content:center;padding:14px 20px;font-size:15px}
+
+/* Footer */
+footer{background:var(--ink);color:rgba(246,241,232,.7);padding:60px 0 32px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+footer h5{color:var(--paper);font-family:'Fraunces';font-size:16px;font-weight:600;margin-bottom:14px;letter-spacing:-.005em}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+footer a{font-size:14px;color:rgba(246,241,232,.7)}
+footer a:hover{color:#37e0a3}
+.foot-bot{
+  border-top:1px solid rgba(246,241,232,.14);padding-top:24px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:13px;
+}
+.foot-bot .logo-text{color:var(--paper);font-size:18px}
+.foot-bot .logo-text small{color:rgba(246,241,232,.55)}
+
+/* WhatsApp float */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:90;
+  width:60px;height:60px;border-radius:50%;
+  background:#25d366;display:grid;place-items:center;
+  box-shadow:0 12px 30px rgba(37,211,102,.45);
+  animation:pulse-wa 2.4s infinite;cursor:pointer;
+}
+@keyframes pulse-wa{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55),0 12px 30px rgba(37,211,102,.45)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0),0 12px 30px rgba(37,211,102,.45)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0),0 12px 30px rgba(37,211,102,.45)}}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+
+/* Responsive */
+@media (max-width:980px){
+  .container{padding:0 22px}
+  nav.main{display:none}
+  .hero{padding:120px 0 60px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-meta{grid-template-columns:repeat(3,1fr);gap:14px}
+  .meta-num{font-size:26px}
+  .cat-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:18px}
+  .prog-grid{grid-template-columns:1fr}
+  .contacto-grid{grid-template-columns:1fr;gap:40px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .section{padding:80px 0}
+  .manifesto{padding:80px 0}
+  .contacto{padding:80px 0}
+  .trust-brand{font-size:18px}
+}
+@media (max-width:520px){
+  .steps{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-meta{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">D</div>
+      <div class="logo-text">DINSA EMS<small>24 AÑOS · CDMX</small></div>
+    </a>
+    <nav class="main">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#programas">Programas</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-primary" href="https://wa.me/5215515215179?text=Hola%20DINSA%20EMS%2C%20me%20interesa%20cotizar%20equipo%20de%20simulaci%C3%B3n">
+      Cotizar ahora →
+    </a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Distribuidora Intersistemas · Desde 2001</span>
+        <h1>Quien <em>enseña</em> a salvar vidas<br>merece el mejor equipo.</h1>
+        <p class="sub">24 años equipando hospitales, escuelas de medicina, servicios prehospitalarios y centros de capacitación en México con simuladores de las marcas más confiables del mundo y los programas oficiales de AHA, NAEMT y ECSI.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://wa.me/5215515215179?text=Hola%2C%20me%20gustar%C3%ADa%20una%20cotizaci%C3%B3n%20para%20mi%20instituci%C3%B3n">Solicitar cotización</a>
+          <a class="btn btn-ghost" href="#catalogo">Ver catálogo completo</a>
+        </div>
+        <div class="hero-meta">
+          <div><div class="meta-num">24</div><div class="meta-lbl">Años en México</div></div>
+          <div><div class="meta-num">5+</div><div class="meta-lbl">Marcas distribuidas</div></div>
+          <div><div class="meta-num">30+</div><div class="meta-lbl">Programas oficiales</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-content">
+          <div class="hv-top">
+            <div class="hv-badge">Simulación clínica</div>
+            <div class="hv-pulse"></div>
+          </div>
+          <div class="hv-bottom">
+            <h3>Equipo profesional para entrenar al estándar internacional.</h3>
+            <p>Prestan · Nasco · Simulaids · WNL Products · SAM Medical. Distribución oficial en México con respaldo, refacciones y soporte técnico.</p>
+            <div class="hv-stats">
+              <div class="hv-stat"><strong>BLS</strong><span>AHA</span></div>
+              <div class="hv-stat"><strong>PHTLS</strong><span>NAEMT</span></div>
+              <div class="hv-stat"><strong>ECSI</strong><span>Certificación</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust band -->
+<section class="trust">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-label">Marcas oficiales que distribuimos</div>
+      <div class="trust-brands">
+        <span class="trust-brand">Prestan</span>
+        <span class="trust-brand">Nasco</span>
+        <span class="trust-brand">Simulaids</span>
+        <span class="trust-brand">WNL Products</span>
+        <span class="trust-brand">SAM Medical</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Manifesto -->
+<section class="manifesto">
+  <div class="container">
+    <div class="manifesto-inner">
+      <span class="eyebrow">Por qué existimos</span>
+      <h2>Cada minuto de práctica con el equipo correcto es <em>un minuto menos</em> que duda quien tiene que actuar.</h2>
+      <p>No vendemos maniquíes. Equipamos a las instituciones que forman a los profesionales que llegan primero a la emergencia. Por eso solo trabajamos con marcas que han probado su rendimiento en escenarios reales y respaldamos cada equipo con soporte técnico y refacciones en México.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Catálogo -->
+<section class="section" id="catalogo">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Catálogo</span>
+      <h2>Todo lo que necesita un programa <em>serio</em> de entrenamiento.</h2>
+      <p>Desde el primer maniquí de RCP para tu escuela hasta el laboratorio de simulación completo de un hospital de tercer nivel. Lo configuramos contigo.</p>
+    </div>
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <span class="num">01 / Simulación</span>
+        <h3>Simuladores y maniquíes</h3>
+        <p>RCP, vía aérea, trauma, parto, intubación, accesos vasculares. Equipo profesional con retroalimentación en tiempo real para entrenamiento riguroso.</p>
+        <ul>
+          <li>Prestan</li><li>Nasco</li><li>Simulaids</li><li>WNL Products</li><li>SAM Medical</li>
+        </ul>
+        <a href="https://wa.me/5215515215179?text=Quiero%20cotizar%20simuladores" class="arrow">Cotizar →</a>
+      </div>
+
+      <div class="cat-card">
+        <span class="num">02 / Manuales</span>
+        <h3>Manuales y materiales oficiales</h3>
+        <p>Libros, manuales del proveedor y del instructor avalados por AAOS, NAEMT y ECSI. También ediciones nacionales para los programas mexicanos.</p>
+        <ul>
+          <li>AAOS</li><li>NAEMT</li><li>ECSI</li><li>Editoriales nacionales</li>
+        </ul>
+        <a href="https://wa.me/5215515215179?text=Quiero%20cotizar%20manuales%20y%20libros" class="arrow">Cotizar →</a>
+      </div>
+
+      <div class="cat-card">
+        <span class="num">03 / Productos digitales</span>
+        <h3>HeartCode, eBooks y video</h3>
+        <p>Acceso oficial a cursos digitales HeartCode de la American Heart Association, eBooks descargables y biblioteca de video-entrenamientos. Licencias por instructor o por institución.</p>
+        <ul>
+          <li>HeartCode BLS · ACLS · PALS</li><li>eBooks AHA</li><li>Video oficial</li>
+        </ul>
+        <a href="https://wa.me/5215515215179?text=Quiero%20acceso%20a%20productos%20digitales%20AHA" class="arrow">Cotizar →</a>
+      </div>
+
+      <div class="cat-card">
+        <span class="num">04 / Insumos y refacciones</span>
+        <h3>Consumibles, refacciones y soporte</h3>
+        <p>Refacciones originales, consumibles, pieles, pulmones y bolsas para tus simuladores. Servicio técnico en CDMX y envíos a toda la República.</p>
+        <ul>
+          <li>Refacciones originales</li><li>Servicio técnico</li><li>Envíos nacionales</li>
+        </ul>
+        <a href="https://wa.me/5215515215179?text=Necesito%20refacciones%20o%20servicio%20t%C3%A9cnico" class="arrow">Solicitar →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Programas -->
+<section class="section" id="programas" style="padding-top:0">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Programas oficiales</span>
+      <h2>Más de <em>30 programas</em> certificados disponibles.</h2>
+      <p>Distribución autorizada de los programas internacionales y nacionales que tu institución necesita para acreditar instructores y proveedores.</p>
+    </div>
+    <div class="prog-grid">
+      <div class="prog">
+        <span class="tag aha">AHA</span>
+        <h4>American Heart Association</h4>
+        <p>BLS · ACLS · PALS · PEARS · Salvacorazones. Con materiales oficiales y acceso a HeartCode.</p>
+      </div>
+      <div class="prog">
+        <span class="tag">NAEMT</span>
+        <h4>NAEMT</h4>
+        <p>PHTLS · GEMS · EPC · PEPP · TECC. Entrenamiento prehospitalario reconocido a nivel mundial.</p>
+      </div>
+      <div class="prog">
+        <span class="tag">ECSI</span>
+        <h4>ECSI · AAOS</h4>
+        <p>BLAST, primeros auxilios, RCP y atención básica. Programas modulares para empresas y centros educativos.</p>
+      </div>
+      <div class="prog">
+        <span class="tag nac">Nacional</span>
+        <h4>Programas mexicanos</h4>
+        <p>RCP-E · Pit Crew · IECG · ETLS · electrocardiografía. Contenido adaptado al contexto clínico nacional.</p>
+      </div>
+      <div class="prog">
+        <span class="tag nac">Especialidad</span>
+        <h4>Electrocardiografía</h4>
+        <p>Programas dedicados de interpretación ECG y manejo del paro cardiaco para personal médico y de enfermería.</p>
+      </div>
+      <div class="prog">
+        <span class="tag aha">Instructor</span>
+        <h4>Acreditación de instructores</h4>
+        <p>Te ayudamos a montar tu centro de entrenamiento oficial AHA o NAEMT y mantener vigentes a tus instructores.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proceso -->
+<section class="section proceso" id="proceso">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>De la primera consulta a tu laboratorio <em>operando</em>.</h2>
+      <p>Un proceso claro para hospitales, escuelas, dependencias y empresas. Sin sorpresas.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Diagnóstico</h4>
+        <p>Identificamos qué programa, nivel de práctica y tipo de alumnos vas a formar. Recomendamos el equipo correcto, no el más caro.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Cotización a la medida</h4>
+        <p>Propuesta detallada con marcas alternativas, presupuestos por fases y opciones de financiamiento institucional.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Entrega y montaje</h4>
+        <p>Logística a toda la República. Acompañamos la instalación y la primera capacitación de uso del equipo.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Soporte continuo</h4>
+        <p>Refacciones originales, mantenimiento y renovación de programas. Estamos aquí cuando tu equipo se desgasta o tu programa se renueva.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacto -->
+<section class="contacto" id="contacto">
+  <div class="container">
+    <div class="contacto-grid">
+      <div>
+        <span class="eyebrow">Visítanos o escríbenos</span>
+        <h2>Estamos en CDMX<br>y atendemos a <em>toda la República</em>.</h2>
+        <p class="lead">Recibimos consultas de hospitales, secretarías de salud, escuelas de medicina y enfermería, fuerzas armadas, empresas con brigadas y centros de capacitación particulares.</p>
+        <div class="contact-block">
+          <div class="lbl">Sucursal CDMX</div>
+          <div class="val">Av. Instituto Politécnico Nacional 5119</div>
+          <div class="val" style="font-size:16px;opacity:.75">Col. Capultitlán · Gustavo A. Madero</div>
+        </div>
+        <div class="contact-block">
+          <div class="lbl">Teléfono</div>
+          <div class="val">55 1521 5179</div>
+        </div>
+        <div class="contact-block">
+          <div class="lbl">Horario</div>
+          <div class="val">Lun – Vie · 9:00 – 18:00</div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Cotizar por WhatsApp</h3>
+        <p>Responde nuestro equipo comercial en menos de 30 minutos en horario hábil. Cuéntanos tu programa, tu institución y a quién vas a entrenar — armamos la propuesta el mismo día.</p>
+        <a class="btn btn-emerald" href="https://wa.me/5215515215179?text=Hola%20DINSA%20EMS%2C%20quiero%20una%20cotizaci%C3%B3n.%20Mi%20instituci%C3%B3n%20es%20%5Bnombre%5D%20y%20necesito%20equipo%20para%20%5Bprograma%5D.">
+          Abrir conversación en WhatsApp →
+        </a>
+        <p style="font-size:13px;margin-top:18px;margin-bottom:0;opacity:.6">Atendemos a sector salud público y privado, instituciones educativas y empresas con brigadas internas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#" class="logo" style="margin-bottom:16px">
+          <div class="logo-mark">D</div>
+          <div class="logo-text" style="color:var(--paper)">DINSA EMS<small>Distribuidora Intersistemas</small></div>
+        </a>
+        <p style="font-size:14px;line-height:1.6;max-width:340px;color:rgba(246,241,232,.6)">Soñamos experiencias, conectamos emociones. 24 años formando a quien forma a quienes salvan vidas en México.</p>
+      </div>
+      <div>
+        <h5>Catálogo</h5>
+        <ul>
+          <li><a href="#catalogo">Simuladores</a></li>
+          <li><a href="#catalogo">Manuales</a></li>
+          <li><a href="#catalogo">Productos digitales</a></li>
+          <li><a href="#catalogo">Refacciones</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Programas</h5>
+        <ul>
+          <li><a href="#programas">AHA</a></li>
+          <li><a href="#programas">NAEMT</a></li>
+          <li><a href="#programas">ECSI</a></li>
+          <li><a href="#programas">Nacionales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="https://wa.me/5215515215179">WhatsApp</a></li>
+          <li><a href="tel:+525515215179">55 1521 5179</a></li>
+          <li><a href="#contacto">Sucursal CDMX</a></li>
+          <li><a href="https://www.instagram.com/dinsa.ems">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <div class="logo-text">DINSA EMS<small>© 2026 Distribuidora Intersistemas · CDMX</small></div>
+      <div>Av. IPN 5119, Col. Capultitlán · GAM, CDMX</div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5215515215179?text=Hola%20DINSA%20EMS%2C%20me%20interesa%20cotizar" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-1.7-.9-2.9-1.6-4-3.5-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5 0-.1-.6-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3 4.8 4.2 1.8.7 2.5.8 3.4.7.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.5-.2zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.4.8 3.1 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+</a>
+
+</body>
+</html>
